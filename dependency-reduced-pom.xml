@@ -98,15 +98,15 @@
     </dependency>
   </dependencies>
   <properties>
-    <Steam.path>D:\Giochi\SteamLibrary\SteamApps</Steam.path>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <StSLib.version>1.21.3</StSLib.version>
-    <kotlin.version>1.4.20</kotlin.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <ModTheSpire.version>3.18.0</ModTheSpire.version>
-    <BaseMod.version>5.26.0</BaseMod.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <Steam.path>E:\Steam\steamapps</Steam.path>
     <SlayTheSpire.version>07-30-2020</SlayTheSpire.version>
+    <kotlin.version>1.4.20</kotlin.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <BaseMod.version>5.26.0</BaseMod.version>
+    <StSLib.version>1.21.3</StSLib.version>
   </properties>
 </project>
 

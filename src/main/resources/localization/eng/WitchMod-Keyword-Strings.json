@@ -1,32 +1,45 @@
 [
   {
     "NAMES": [
+      "循环",
       "recurrent"
     ],
-    "DESCRIPTION": "When this card is played it's shuffled in the draw pile instead of being discarded."
+    "DESCRIPTION": "当这张牌被打出时，它会洗入抽牌堆，而不是被丢弃。"
   },
   {
     "NAMES": [
+      "净化",
       "cleanse"
     ],
-    "DESCRIPTION": "This card is cleansed if the condition is satisfied while in hand, turning into a powerful card for the rest of the combat."
+    "DESCRIPTION": "如果在手牌中满足条件，这张牌将被净化，变为一张强力牌，持续到战斗结束。"
   },
   {
     "NAMES": [
+      "腐蚀",
       "rot"
     ],
-    "DESCRIPTION": "Creatures afflicted by Rot lose HP at the start of their turn. Each turn Rot is increased by #b1."
+    "DESCRIPTION": "受到腐蚀影响的生物在回合开始时失去生命值。每回合腐蚀层数增加 #b1 。"
   },
   {
     "NAMES": [
+      "衰弱",
       "decrepit"
     ],
-    "DESCRIPTION": "Creatures afflicted by Decrepit suffer 1 extra damage from attacks for each stack. NL Each turn Decrepit is decreased by #b1."
+    "DESCRIPTION": "受到衰弱影响的生物每层衰弱效果会使其受到额外 1 点攻击伤害。 NL   每回合衰弱层数减少 #b1 。"
   },
   {
     "NAMES": [
+      "即时",
       "unveil"
     ],
-    "DESCRIPTION": "When drawn trigger an effect."
+    "DESCRIPTION": "当抽到这张牌时，触发一个效果。"
+  },
+  {
+    "NAMES": [
+      "魔火",
+      "Demonfyre"
+    ],
+    "DESCRIPTION": "魔火卡"
   }
+
 ]

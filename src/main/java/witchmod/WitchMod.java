@@ -34,31 +34,34 @@ import witchmod.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
-
+// 主类初始化
 @SpireInitializer
 public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, EditStringsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, PostDrawSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber {
 
+    // 日志记录器
     public static final Logger logger = LogManager.getLogger(WitchMod.class);
 
+    // 模组的 ID 和其他基本信息
     public static final String modID = "witchmod";
     private static final String MODNAME = "WitchMod";
     private static final String AUTHOR = "Gygrazok";
     private static final String DESCRIPTION = "Adds The Witch character";
 
+    // 定义女巫角色的颜色
     private static final Color WITCH_COLOR = CardHelper.getColor(90.0f, 90.0f, 100.0f);
     private static final String ASSETS_FOLDER = "witchmod_images";
 
+    // 卡牌和能量球的资源路径
     private static final String ATTACK_CARD = "512/bg_attack_witch.png";
     private static final String SKILL_CARD = "512/bg_skill_witch.png";
     private static final String POWER_CARD = "512/bg_power_witch.png";
-
     private static final String ENERGY_ORB = "512/card_witch_orb.png";
-
     private static final String ATTACK_CARD_PORTRAIT = "1024/bg_attack_witch.png";
     private static final String SKILL_CARD_PORTRAIT = "1024/bg_skill_witch.png";
     private static final String POWER_CARD_PORTRAIT = "1024/bg_power_witch.png";
     private static final String ENERGY_ORB_PORTRAIT = "1024/card_witch_orb.png";
 
+    // 角色按钮和肖像图的路径
     private static final String CHAR_BUTTON = "charSelect/button.png";
     private static final String CHAR_PORTRAIT = "charSelect/portrait.png";
     public static final String CHAR_SHOULDER_1 = "char/shoulder.png";
@@ -67,19 +70,22 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
     public static final String CHAR_SKELETON_ATLAS = "char/skeleton.atlas";
     public static final String CHAR_SKELETON_JSON = "char/skeleton.json";
 
+    // 勋章图标路径
     public static final String BADGE_IMG = "badge.png";
 
+    // 记录一些变量
     public static int cardsDrawnTotal = 0;
     public static int cardsDrawnThisTurn = 0;
     public static int cursesDrawnTotal = 0;
 
+    // 获取资源路径的帮助方法
     public static final String getResourcePath(String resource) {
         return ASSETS_FOLDER + "/" + resource;
     }
 
+    // 构造方法，订阅模组事件
     public WitchMod() {
         BaseMod.subscribe(this);
-
         BaseMod.addColor(AbstractCardEnum.WITCH,
                 WITCH_COLOR, WITCH_COLOR, WITCH_COLOR, WITCH_COLOR, WITCH_COLOR, WITCH_COLOR, WITCH_COLOR,
                 getResourcePath(ATTACK_CARD), getResourcePath(SKILL_CARD), getResourcePath(POWER_CARD),
@@ -88,11 +94,13 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
                 getResourcePath(ENERGY_ORB_PORTRAIT));
     }
 
+    // 初始化模组
     public static void initialize() {
         logger.info("Initializing Witch Mod");
         new WitchMod();
     }
 
+    // 处理模组初始化后执行的操作
     public void receivePostInitialize() {
         Texture badgeTexture = new Texture(getResourcePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
@@ -100,12 +108,13 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         }));
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        // 配置游戏设置
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
     }
 
-
+    // 编辑角色
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new WitchCharacter("The Witch"),
                 getResourcePath(CHAR_BUTTON),
@@ -113,8 +122,9 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
                 WitchEnum.WITCH);
     }
 
-
+    // 编辑遗物
     public void receiveEditRelics() {
+        RelicLibrary.add(new CustomRelicTest());
         RelicLibrary.add(new BlackCat());
         BaseMod.addRelicToCustomPool(new BirdCage(), AbstractCardEnum.WITCH);
         BaseMod.addRelicToCustomPool(new WalkingCane(), AbstractCardEnum.WITCH);
@@ -122,14 +132,15 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addRelicToCustomPool(new ToyHorse(), AbstractCardEnum.WITCH);
     }
 
+    // 编辑卡牌
     public void receiveEditCards() {
-        //BASIC
+        // 基础卡牌
         BaseMod.addCard(new Strike_Witch());
         BaseMod.addCard(new Defend_Witch());
         BaseMod.addCard(new ZombieSpit());
         BaseMod.addCard(new Hexguard());
-        //COMMON (21)
-        //Attacks (11)
+        // 常见卡牌
+        // 攻击卡（11张）
         BaseMod.addCard(new Demonfyre());
         BaseMod.addCard(new BleedOut());
         BaseMod.addCard(new Broomstick());
@@ -141,7 +152,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new MementoMori());
         BaseMod.addCard(new SkullFlask());
         BaseMod.addCard(new Thundercloud());
-        //Skills (10)
+        // 技能卡（10张）
         BaseMod.addCard(new BlackShield());
         BaseMod.addCard(new SaltCircle());
         BaseMod.addCard(new KarmaDrain());
@@ -152,10 +163,8 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new RoilingBarrier());
         BaseMod.addCard(new Decrepify());
         BaseMod.addCard(new Atonement());
-
-
-        //UNCOMMON (28)
-        //Attacks (10)
+        // 非常见卡牌
+        // 攻击卡（10张）
         BaseMod.addCard(new Athame());
         BaseMod.addCard(new PainBolt());
         BaseMod.addCard(new CursedBlade());
@@ -166,7 +175,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new Puncture());
         BaseMod.addCard(new Harmlessness());
         BaseMod.addCard(new Malady());
-        //Skills (11)
+        // 技能卡（11张）
         BaseMod.addCard(new Foresight());
         BaseMod.addCard(new Shrooms());
         BaseMod.addCard(new NighInvulnerability());
@@ -178,7 +187,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new BalefulWard());
         BaseMod.addCard(new CorruptBlood());
         BaseMod.addCard(new PlagueSpreader());
-        //Powers (7)
+        // 能力卡（7张）
         BaseMod.addCard(new TwistedMind());
         BaseMod.addCard(new Schadenfreude());
         BaseMod.addCard(new SummonOwlFamiliar());
@@ -186,10 +195,8 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new SummonCatFamiliar());
         BaseMod.addCard(new SummonBatFamiliar());
         BaseMod.addCard(new GrimVengeance());
-
-
-        //RARE (25)
-        //Attacks (8)
+        // 稀有卡牌
+        // 攻击卡（8张）
         BaseMod.addCard(new ImpendingDoom());
         BaseMod.addCard(new Graveburst());
         BaseMod.addCard(new EternalThirst());
@@ -198,7 +205,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new BloodSabbath());
         BaseMod.addCard(new Boline());
         BaseMod.addCard(new EvilEye());
-        //Skills (9)
+        // 技能卡（9张）
         BaseMod.addCard(new MysticUnburial());
         BaseMod.addCard(new UnnaturalEnergy());
         BaseMod.addCard(new UnluckySeven());
@@ -208,7 +215,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new RustWall());
         BaseMod.addCard(new WalpurgisNight());
         BaseMod.addCard(new VileEgg());
-        //Powers (8)
+        // 能力卡（8张）
         BaseMod.addCard(new Intelligence());
         BaseMod.addCard(new SummonToadFamiliar());
         BaseMod.addCard(new SummonRavenFamiliar());
@@ -219,7 +226,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.addCard(new DeliriumForm());
     }
 
-
+    // 编辑字符串
     public void receiveEditStrings() {
         String relicStrings = Gdx.files.internal("witchmod_strings/relic-strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -228,7 +235,7 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/eng/WitchMod-Power-Strings.json");
     }
 
-
+    // 编辑关键字
     public void receiveEditKeywords() {
         Gson gson = new Gson();
         String json = Gdx.files.internal("localization/eng/WitchMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
@@ -236,15 +243,15 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword("", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
-
     }
 
+    // 处理卡牌抽取后的操作
     public void receivePostDraw(AbstractCard c) {
         AbstractPlayer player = AbstractDungeon.player;
-        //custom callback for card draw on powers
+        // 针对特殊的力量效果进行回调
         for (AbstractPower p : player.powers) {
             if (p instanceof AbstractWitchPower) {
                 p.onCardDraw(c);
@@ -257,18 +264,18 @@ public class WitchMod implements PostInitializeSubscriber, EditCardsSubscriber, 
         }
     }
 
+    // 处理怪物回合前的操作
     @Override
     public boolean receivePreMonsterTurn(AbstractMonster m) {
         cardsDrawnThisTurn = 0;
         return true;
     }
 
+    // 战斗开始时的操作
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
         cardsDrawnTotal = 0;
         cursesDrawnTotal = 0;
         cardsDrawnThisTurn = 0;
     }
-
-
 }

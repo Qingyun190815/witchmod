@@ -30,8 +30,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import org.lwjgl.Sys;
 import witchmod.WitchMod;
-import witchmod.cards.AbstractWitchCard;
-import witchmod.cards.ZombieSpit;
+import witchmod.cards.*;
 import witchmod.patches.AbstractCardEnum;
 import witchmod.patches.WitchEnum;
 
@@ -39,8 +38,8 @@ import witchmod.patches.WitchEnum;
 
 
 public class WitchCharacter extends CustomPlayer{
-	
-    public static final int ENERGY_PER_TURN = 3;
+
+	public static final int ENERGY_PER_TURN = 3;
 
 	public static final String[] orbTextures = {
 			WitchMod.getResourcePath("char/orb/layer1.png"),
@@ -57,18 +56,18 @@ public class WitchCharacter extends CustomPlayer{
 	};
 
 
-	
+
 	public WitchCharacter(String name) {
 		super(name, WitchEnum.WITCH, orbTextures, WitchMod.getResourcePath("char/orb/vfx.png"), null, new SpriterAnimation(WitchMod.getResourcePath("char/spriter/witch.scml")));
 		dialogX = drawX + 0.0f * Settings.scale;
 		dialogY = drawY + 220.0f * Settings.scale;
-		
+
 		initializeClass(null, WitchMod.getResourcePath(WitchMod.CHAR_SHOULDER_2),
 				WitchMod.getResourcePath(WitchMod.CHAR_SHOULDER_1),
-				WitchMod.getResourcePath(WitchMod.CHAR_CORPSE), 
+				WitchMod.getResourcePath(WitchMod.CHAR_CORPSE),
 				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 	}
-	
+
 	@Override
 	public void applyEndOfTurnTriggers() {
 		for (AbstractPower p : powers) {
@@ -89,10 +88,11 @@ public class WitchCharacter extends CustomPlayer{
 		retVal.add("WitchMod:Defend_Witch");
 		retVal.add("WitchMod:Hexguard");
 		retVal.add("WitchMod:ZombieSpit");
+
 		return retVal;
 		//return getAllCards();
 	}
-	
+
 	//for debug
 	private static ArrayList<String> getAllCards() {
 		ArrayList<String> out = new ArrayList<String>();
@@ -101,26 +101,22 @@ public class WitchCharacter extends CustomPlayer{
 		}
 		return out;
 	}
-	
+
 	@Override
 	public ArrayList<String> getStartingRelics() {
 		ArrayList<String> retVal = new ArrayList<>();
 		retVal.add("BlackCat");
-		UnlockTracker.markRelicAsSeen("BlackCat");
+		retVal.add("CustomRelicTest");
 		return retVal;
 	}
-	
-	
+
+
 	@Override
 	public CharSelectInfo getLoadout() {
-		return new CharSelectInfo("The Witch", "A cackling sorceress specialized NL in dealing with curses.",
+		return new CharSelectInfo("The Witch", " 诅咒之力的·女巫·攀登高塔,  NL  寻找净化的仪式 ",
 				67, 67, 0, 99, 5,
-			this, getStartingRelics(), getStartingDeck(), false);
+				this, getStartingRelics(), getStartingDeck(), false);
 	}
-	
-	
-
-
 
 
 	@Override
@@ -176,34 +172,41 @@ public class WitchCharacter extends CustomPlayer{
 	public AbstractPlayer newInstance() {
 		return new WitchCharacter(this.name);
 	}
-	
+
 	@Override
-    public BitmapFont getEnergyNumFont() {
-        return FontHelper.energyNumFontRed;
-    }
-	
+	public BitmapFont getEnergyNumFont() {
+		return FontHelper.energyNumFontRed;
+	}
+
 	@Override
 	public Color getCardRenderColor() {
 		return Color.SLATE;
 	}
-	
+
 	@Override
 	public String getVampireText() {
-		 return Vampires.DESCRIPTIONS[5];
+		return Vampires.DESCRIPTIONS[5];
 	}
 
 	@Override
 	public Color getSlashAttackColor() {
 		return Color.SLATE;
 	}
-	
+
 	@Override
 	public String getSpireHeartText() {
 		return "NL You invoke an ominous curse...";
 	}
-	
+
 	@Override
 	public AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.SMASH, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_VERTICAL};
+		return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.SMASH, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_VERTICAL};
 	}
+
+
+
+
+
+
+
 }

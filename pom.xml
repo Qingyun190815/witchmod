@@ -15,7 +15,7 @@
 		<BaseMod.version>5.26.0</BaseMod.version>
 		<StSLib.version>1.21.3</StSLib.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<Steam.path>D:\Giochi\SteamLibrary\SteamApps</Steam.path>
+		<Steam.path>E:\Steam\steamapps</Steam.path>
 
 		<kotlin.version>1.4.20</kotlin.version>
 	</properties>

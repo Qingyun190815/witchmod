@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
-public class BoneCarving extends AbstractWitchCard {
+public class BoneCarving extends AbstractWitchUnveilCard {
     public static final String ID = "BoneCarving";
     public static final String NAME = "Bone Carving";
     public static final String IMG = "cards/bonecarving.png";

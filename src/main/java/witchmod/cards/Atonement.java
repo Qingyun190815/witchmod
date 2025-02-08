@@ -14,30 +14,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Atonement extends AbstractWitchCard {
-    public static final String ID = "Atonement";
-    public static final String NAME = "Atonement";
-    public static final String IMG = "cards/atonement.png";
-    public static final String DESCRIPTION = "Exhaust a random Status or Curse card in your draw pile. NL Gain !B! Block.";
+    public static final String ID = "Atonement";  // 卡片ID
+    public static final String NAME = "赎罪";  // 卡片名称
+    public static final String IMG = "cards/atonement.png";  // 卡片图片路径
+    public static final String DESCRIPTION = "消耗抽牌堆中的一张随机状态或诅咒卡. NL 获得 !B! 点格挡.";  // 卡片描述
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardRarity RARITY = CardRarity.COMMON;  // 卡片稀有度
+    private static final CardTarget TARGET = CardTarget.SELF;  // 目标：自己
+    private static final CardType TYPE = CardType.SKILL;  // 卡片类型：技能
 
-    private static final int POOL = 1;
-
-    private static final int COST = 1;
-    private static final int POWER = 7;
-    private static final int POWER_UPGRADED = 4;
-
+    private static final int COST = 1;  // 消耗能量
+    private static final int POWER = 7;  // 默认护甲量
+    private static final int POWER_UPGRADED = 4;  // 升级后的护甲量增益
 
     public Atonement() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = POWER;
+        this.baseBlock = POWER;  // 设置基础护甲
     }
 
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // 获取抽牌堆中的随机状态卡或诅咒卡
         AbstractCard toExhaust = getRandomCurseOrStatusFromDeck();
         if (toExhaust != null) {
+            // 设置卡片动画效果
             toExhaust.current_y = -200.0f * Settings.scale;
             toExhaust.target_x = Settings.WIDTH / 2.0f;
             toExhaust.target_y = Settings.HEIGHT / 2.0f;
@@ -45,26 +45,33 @@ public class Atonement extends AbstractWitchCard {
             toExhaust.lighten(false);
             toExhaust.drawScale = 0.12f;
             toExhaust.targetDrawScale = 0.75f;
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5f));
+
+            // 添加消耗卡片的动作
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5f));  // 等待时间
             AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(toExhaust, p.drawPile));
         }
+
+        // 增加护甲
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
-
+    @Override
     public AbstractCard makeCopy() {
-        return new Atonement();
+        return new Atonement();  // 返回一张新的卡片副本
     }
 
+    // 获取随机的状态卡或诅咒卡
     private AbstractCard getRandomCurseOrStatusFromDeck() {
         List<AbstractCard> candidates = new ArrayList<>();
-        //prioritizes status...
+
+        // 优先选择状态卡
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (c.type == CardType.STATUS) {
                 candidates.add(c);
             }
         }
-        //then normal curses...
+
+        // 如果没有状态卡，选择普通诅咒卡
         if (candidates.size() == 0) {
             for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                 if (c.type == CardType.CURSE && !(c instanceof AbstractWitchCleansableCurse)) {
@@ -72,7 +79,8 @@ public class Atonement extends AbstractWitchCard {
                 }
             }
         }
-        //then cleansable curses
+
+        // 如果没有普通诅咒卡，选择可清除的诅咒卡
         if (candidates.size() == 0) {
             for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                 if (c.type == CardType.CURSE) {
@@ -80,18 +88,22 @@ public class Atonement extends AbstractWitchCard {
                 }
             }
         }
+
+        // 如果没有可消耗的卡片，则返回null
         if (candidates.size() == 0) {
             return null;
         }
-        return candidates.get(MathUtils.random(candidates.size() - 1));
 
+        // 随机选择一张卡片
+        return candidates.get(MathUtils.random(candidates.size() - 1));
     }
 
+    // 升级卡片
+    @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeName();
-            upgradeBlock(POWER_UPGRADED);
+            upgradeName();  // 升级卡片名称
+            upgradeBlock(POWER_UPGRADED);  // 增加护甲值
         }
     }
-
 }

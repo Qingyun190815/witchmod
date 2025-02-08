@@ -1,88 +1,87 @@
 {
   "WitchMod:AthamesOffering": {
-    "NAME": "Athame's Offering",
-    "DESCRIPTIONS": ["Chance to obtain a rare card increased by #b", "%."]
+    "NAME": "阿萨梅的献祭",
+    "DESCRIPTIONS": ["增加获得稀有卡片的几率 #b","%."]
   },
   "WitchMod:BalefulWardPower": {
-    "NAME": "Baleful Ward",
-    "DESCRIPTIONS": ["If Block is broken add #b", " Baleful Ward to your hand."]
+    "NAME": "不祥护盾",
+    "DESCRIPTIONS": ["如果护盾被打破，加入 #b"," 不祥护盾到你的手牌.,"]
   },
   "WitchMod:ChosenOfTheMoonPower": {
-    "NAME": "Chosen of the Moon",
-    "DESCRIPTIONS": ["Gain #b"," Artifact when your turn begins if you have none."]
+    "NAME": "月亮的选民",
+    "DESCRIPTIONS": ["如果你回合开始时没有 人工制品 ，获得 #b","  人工制品 ."]
   },
   "WitchMod:DarkProcessionPower": {
-    "NAME": "Dark Procession",
-    "DESCRIPTIONS": ["At the start of your turn add "," copy "," copies "," of the last played card to your hand.", " NL Last played card: "]
+    "NAME": "黑暗队列",
+    "DESCRIPTIONS": ["在你回合开始时，加入","副本","副本","最后使用的卡片到你的手牌.,"," NL 上一张使用的卡片: "]
   },
   "WitchMod:Decrepit": {
-    "NAME": "Decrepit",
-    "DESCRIPTIONS": ["All damage from attacks is increased by #b"]
+    "NAME": "衰弱",
+    "DESCRIPTIONS": ["所有来自攻击的伤害增加 #b"]
   },
   "WitchMod:DeliriumFormPower": {
-    "NAME": "Delirium Form",
-    "DESCRIPTIONS": ["Whenever you play a non-Cost 0 card, draw "," card."," cards."]
+    "NAME": "癫狂形态",
+    "DESCRIPTIONS": ["每次你打出一张非零费用的卡片，抽取 "," 张卡片.,","张卡片.,"]
   },
   "WitchMod:DemonfyrePower": {
-    "NAME": "Demonfyre",
-    "DESCRIPTIONS": ["Increases the damage of Demonfyre by #b"]
+    "NAME": "恶魔之火",
+    "DESCRIPTIONS": ["增加恶魔之火的伤害 #b"]
   },
   "WitchMod:GrimVengeancePower": {
-    "NAME": "Grim Vengeance",
-    "DESCRIPTIONS": ["When you are attacked apply #b"," witchmod:decrepit to the attacker."]
+    "NAME": "严峻复仇",
+    "DESCRIPTIONS": ["当你被攻击时，向攻击者施加 #b"," 衰弱 .,"]
   },
   "WitchMod:HexguardPower": {
-    "NAME": "Hexguard",
-    "DESCRIPTIONS": ["Temporarily gained #b"," Artifact."]
+    "NAME": "邪咒守卫",
+    "DESCRIPTIONS": ["暂时获得 #b"," Artifact."]
   },
   "WitchMod:IllOmenPower": {
-    "NAME": "Ill Omen",
-    "DESCRIPTIONS": ["The next time you draw a curse deal #b"," damage to ALL enemies."]
+    "NAME": "不祥预兆",
+    "DESCRIPTIONS": ["下次你抽到诅咒时，造成 #b"," 对所有敌人的伤害.,"]
   },
   "WitchMod:ImpendingDoom": {
-    "NAME": "Impending Doom",
-    "DESCRIPTIONS": ["At the end of its next turn, loses #b"," health."]
+    "NAME": "迫在眉睫的厄运",
+    "DESCRIPTIONS": ["在它的下一回合结束时，失去 #b"," 生命值.,"]
   },
   "WitchMod:Intelligence": {
-    "NAME": "Intelligence",
-    "DESCRIPTIONS": ["At the start of your turn, draw", "random card from your discard pile.", "random cards from your discard pile."]
+    "NAME": "智慧",
+    "DESCRIPTIONS": ["在你回合开始时，从你的弃牌堆抽取","张随机卡牌.,","张随机卡牌.,"]
   },
   "WitchMod:Twitch": {
-    "NAME": "Twitch",
-    "DESCRIPTIONS": ["Temporarily gained #b"," #yDexterity."]
+    "NAME": "灵动",
+    "DESCRIPTIONS": ["暂时获得 #b"," #y敏捷.,"]
   },
   "WitchMod:Rot": {
-    "NAME": "Rot",
-    "DESCRIPTIONS": ["At the start of its turn, loses #b",
-      " HP, then Rot increases by 1.",
-      " NL When it dies, spread to another monster.",
-      "Contagious"]
+    "NAME": "腐烂",
+    "DESCRIPTIONS": ["在其回合开始时，失去 #b"," 生命值，然后腐烂增加 1.,",
+      " NL 当它死亡时，蔓延到另一个怪物.,",
+      "传染性"]
   },
   "WitchMod:SchadenfreudePower": {
-    "NAME": "Schadenfreude",
-    "DESCRIPTIONS": ["Whenever you apply a Debuff to an enemy, gain #b"," Block"]
+    "NAME": "幸灾乐祸",
+    "DESCRIPTIONS": ["每次你对敌人施加负面效果时，获得 #b"," 格挡"]
   },
   "WitchMod:SkullFlaskPower": {
-    "NAME": "Skull Flask",
-    "DESCRIPTIONS": ["Temporarily gained #b"," Strength."]
+    "NAME": "骷髅瓶",
+    "DESCRIPTIONS": ["暂时获得 #b"," 力量."]
   },
   "WitchMod:SummonFamiliar": {
-    "NAME": "Summon Familiar",
-    "DESCRIPTIONS": ["At the start of your turn, add ", "  to your hand",
-      "an upgraded Bat","a Bat",
-      "an upgraded Cat","a Cat",
-      "an upgraded Owl","a Owl",
-      "an upgraded Rat","a Rat",
-      "an upgraded Toad","a Toad",
-      "an upgraded Raven","a Raven"
+    "NAME": "召唤使者",
+    "DESCRIPTIONS": ["在你回合开始时，加入 "," 到你的手牌",
+      "一张升级版的蝙蝠","一张蝙蝠",
+      "一张升级版的猫","一张猫",
+      "一张升级版的猫头鹰","一张猫头鹰",
+      "一张升级版的老鼠","一张老鼠",
+      "一张升级版的蟾蜍","一张蟾蜍",
+      "一张升级版的乌鸦","一张乌鸦"
     ]
   },
   "WitchMod:TrollsBloodPower": {
-    "NAME": "Troll's Blood",
-    "DESCRIPTIONS": ["At the end of your turn gain "," health if you played at least an attack this turn."]
+    "NAME": "巨魔之血",
+    "DESCRIPTIONS": ["在你回合结束时，如果你本回合至少打出了1张攻击卡，获得 "," 生命.,"]
   },
   "WitchMod:TwistedMindPower": {
-    "NAME": "Twisted Mind",
-    "DESCRIPTIONS": ["Whenever you play a card that costs 2 or more, ALL enemies lose "," health."]
+    "NAME": "扭曲的心智",
+    "DESCRIPTIONS": ["每次你打出一张费用为2或更高的卡片时，所有敌人失去 "," 生命值.,"]
   }
 }

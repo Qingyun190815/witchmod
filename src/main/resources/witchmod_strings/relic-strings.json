@@ -1,27 +1,32 @@
 {
-	"BlackCat":{
-		"NAME": "Black Cat",
-		"FLAVOR": "Meow",
-		"DESCRIPTIONS":["At the beginning of each combat choose 1 of 3 random NL Curses to shuffle into your draw pile. NL Gain [B] whenever you draw a Curse."]
+	"BlackCat": {
+		"NAME": "黑猫",
+		"FLAVOR": "喵～",
+		"DESCRIPTIONS": ["每场战斗开始时,从3个随机诅咒中选择1个,洗入你的抽牌堆.  NL   每当你抽到诅咒牌时,获得 [B] ."]
 	},
-	"PetCage":{
-		"NAME": "Pet Cage",
-		"FLAVOR": "It makes strange noises.",
-		"DESCRIPTIONS":["Add a random Familiar in your hand at the beginning of each turn."]
+	"PetCage": {
+		"NAME": "宠物笼",
+		"FLAVOR": "它发出奇怪的声音.",
+		"DESCRIPTIONS": ["每回合开始时,随机将一张随从牌加入你的手牌."]
 	},
-	"WalkingCane":{
-		"NAME": "Walking Cane",
-		"FLAVOR": "Kids these days...",
-		"DESCRIPTIONS":["Weak, Vulnerable and Decrepit you apply no longer decrease each turn."]
+	"WalkingCane": {
+		"NAME": "拐杖",
+		"FLAVOR": "现在的年轻人啊……",
+		"DESCRIPTIONS": ["你施加的虚弱、易伤和衰弱效果不再随回合减少."]
 	},
-	"Scissors":{
-		"NAME": "Scissors",
-		"FLAVOR": "Let's take just a couple inches off...",
-		"DESCRIPTIONS":["Whenever you add a rare card to your deck, remove a random Basic Strike or Defend."]
+	"Scissors": {
+		"NAME": "剪刀",
+		"FLAVOR": "就稍微剪掉一点点吧……",
+		"DESCRIPTIONS": ["每当你将一张橙色稀有牌加入牌组时,随机移除一张基础攻击或基础防御."]
 	},
-	"ToyHorse":{
-		"NAME": "Toy Horse",
-		"FLAVOR": "It reminds you of your childhood.",
-		"DESCRIPTIONS":["Upon pickup, choose a Basic card of any character to add to your deck."]
+	"ToyHorse": {
+		"NAME": "玩具马",
+		"FLAVOR": "它让你想起了童年.",
+		"DESCRIPTIONS": ["获得时,选择一张任意角色的基础牌加入你的牌组."]
+	},
+	"CustomRelicTest": {
+		"NAME": "吟唱魔法帽",
+		"FLAVOR": "速 <.)#)))≦ 吟唱魔法",
+		"DESCRIPTIONS": ["触发即时卡组"]
 	}
 }
